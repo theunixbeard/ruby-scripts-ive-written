@@ -1,0 +1,123 @@
+Ben Gelsey (12/3/13) - Phone Interview
+=======================================
+
+DIMENSION = 3
+def get3by3 grid, offset, offset2
+    offset_end = offset + 3
+    offset2_end = offset2 + 3
+    ret_array = Array.new
+    for i in offset...offset_end do
+        for j in offset2...offset2_end do
+            ret_array << grid[i][j]
+        end
+    end
+    return ret_array
+end
+
+
+# function that takes 2d array, which is a 9x9 sudoku grid
+# return whether it is true or false (valid solution)
+
+def sudoku_valid? grid
+    
+    # grid has first index for row, 2nd index for column
+    
+    # Check every row
+    grid.each do |row|
+        seen = Set.new
+        (0..9).each do |row_value|
+            if !seen.add?(row_value)
+                return false
+            end
+        end
+    end
+    
+    # Check every column
+    grid.each do |row|
+        seen = Set.new
+        row.each do |col_value|
+            if !seen.add?(col_value)
+                return false
+            end
+        end
+    end
+    
+    # Check every 3x3
+    [0,3,6].each do |offset|
+        [0,3,6].each do |offset2|
+            to_check = get3by3 grid, offset, offset2
+            seen = Set.new
+            to_check.each do |value|
+                if !seen.add?(col_value)
+                    return false
+                end
+            end
+        end
+    end
+    
+    
+    return true
+end
+
+
+
+===========================
+
+/*
+    
+*/
+
+public class MyArrayList {
+
+public static final START_LENGTH = 10;
+
+protected int actual_length = 0;
+protected Object[] arrayList = new Object[START_LENGTH];
+
+Object get(int index) {
+    if (index >= actual_length) {
+        throw INDEX_OUT_BOUNDS_EXCEPTION;
+    }
+    return arrayList[index];
+}
+
+void set(int index, Object element) {
+    if (index >= actual_length) {
+        throw INDEX_OUT_BOUNDS_EXCEPTION;
+    }
+    arrayList[index] = element;
+}
+
+void remove(int index) {
+    if (index >= actual_length) {
+        throw INDEX_OUT_BOUNDS_EXCEPTION;
+    }
+    arrayList[index] = null;
+    actual_length -= 1;
+    // Shift everything to the left
+    for(int i = index; i < actual_length; ++i) {
+        array[index] = array[index+1];
+    }
+}
+
+void add(Object element) {
+    if(actual_length == arrayList.length) {
+        Object[] old = arrayList;
+        arrayList = new Object[arrayList.length*2];
+        for(int i = 0; i < old.length; ++i) {
+            arrayList[i] = old[i];
+        }
+    }
+    arrayList[actual_length] = element;
+    actual_length += 1;
+}
+
+int size() {
+    return actual_length;
+}
+
+}
+
+
+
+

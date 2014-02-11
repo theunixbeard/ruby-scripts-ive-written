@@ -1,0 +1,24 @@
+1. 
+
+2. sublime edit, vim
+
+3. See below
+
+def contains_string?(str1, str2)
+  !!str1.slice(str2) # slice returns a string if str2 in str1, nil otherwise. !! is a double negation which is a clever way to convert objects to their boolean value.
+end
+
+4. Had no clue, couldn't even run the code sample in 1.9.3 or 2.0.0. From this link: http://www.zenspider.com/Languages/Ruby/QuickRef.html#pre-defined-variables
+
+5. 
+
+Rails specific: (http://apidock.com/rails/Class/cattr_accessor)
+cattr_accessor(*syms, &blk) public
+Defines both class and instance accessors for class attributes.
+
+class << self (http://stackoverflow.com/questions/2505067/class-self-idiom-in-ruby)
+
+foo = foo | init - trick to initialize stuff once (if its nil) otherwise keep the value from before)
+
+6. Presumably its to show success/warning/error flash messages to the user. key is the class to style the message (as success/warning/error) value is the content.
+

@@ -1,0 +1,2 @@
+repository 'file:///Users/primary/.m2/repository'
+jar 'com.google:bitcoinj' , '0.8'
